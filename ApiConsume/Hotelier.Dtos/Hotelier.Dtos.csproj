@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Hotelier.Core\Hotelier.Core.csproj" />
+  </ItemGroup>
+
 </Project>
