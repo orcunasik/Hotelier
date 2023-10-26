@@ -1,6 +1,8 @@
-﻿namespace Hotelier.Core.Models;
+﻿using Hotelier.Core.Models.Abstracts;
 
-public class Testimonial : BaseEntity
+namespace Hotelier.Core.Models;
+
+public class Testimonial : BaseEntity, IEntity
 {
     public string FirstName { get; set; }
     public string LastName { get; set; }

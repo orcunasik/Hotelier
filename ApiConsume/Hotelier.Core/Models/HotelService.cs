@@ -1,6 +1,8 @@
-﻿namespace Hotelier.Core.Models;
+﻿using Hotelier.Core.Models.Abstracts;
 
-public class HotelService : BaseEntity
+namespace Hotelier.Core.Models;
+
+public class HotelService : BaseEntity, IEntity
 {
     public string Icon { get; set; }
     public string Description { get; set; }

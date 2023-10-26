@@ -1,6 +1,8 @@
-﻿namespace Hotelier.Core.Models;
+﻿using Hotelier.Core.Models.Abstracts;
 
-public class Room : BaseEntity
+namespace Hotelier.Core.Models;
+
+public class Room : BaseEntity, IEntity
 {
     public string CoverImage { get; set; }
     public string RoomNumber { get; set; }
