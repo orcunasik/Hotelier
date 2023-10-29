@@ -6,7 +6,7 @@ namespace Hotelier.Repository.Context;
 
 public class AppDbContext : DbContext
 {
-    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+    public AppDbContext(DbContextOptions options) : base(options)
     {
         
     }
@@ -17,9 +17,4 @@ public class AppDbContext : DbContext
     public DbSet<Testimonial> Testimonials { get; set; }
     public DbSet<EmailSubscribe> EmailSubscribes { get; set; }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-        base.OnModelCreating(modelBuilder);
-    }
 }
