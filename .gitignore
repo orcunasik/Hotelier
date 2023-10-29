@@ -362,3 +362,4 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /ApiConsume/Hotelier.WebApi/appsettings.json
+/ApiConsume/Hotelier.WebApi/Properties/launchSettings.json
