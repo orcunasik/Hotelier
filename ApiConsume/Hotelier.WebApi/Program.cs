@@ -1,27 +1,17 @@
-using Hotelier.Repository.Context;
-using Microsoft.EntityFrameworkCore;
-using System.Reflection;
+using Hotelier.Service.Extensions;
+using Hotelier.Repository.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<AppDbContext>(x =>
-{
-    x.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection"), option =>
-    {
-        //Tip güvenli almak için
-        option.MigrationsAssembly(Assembly.GetAssembly(typeof(AppDbContext)).GetName().Name);
-    });
-});
+
+builder.Services.LoadMyRepositories();
+builder.Services.LoadMyServices();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
