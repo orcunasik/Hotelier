@@ -46,8 +46,9 @@ public class RoomsController : ControllerBase
     }
     
     [HttpDelete]
-    public IActionResult Delete(Room room)
+    public IActionResult Delete(int id)
     {
+        Room room = _service.GetById(id);
         _service.Delete(room);
         return Ok("Oda Kaydı Silindi");
     }

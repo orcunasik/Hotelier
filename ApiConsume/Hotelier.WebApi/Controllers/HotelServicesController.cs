@@ -46,8 +46,9 @@ public class HotelServicesController : ControllerBase
     }
 
     [HttpDelete]
-    public IActionResult Delete(HotelService hotelService)
+    public IActionResult Delete(int id)
     {
+        HotelService hotelService = _service.GetById(id);
         _service.Delete(hotelService);
         return Ok("Hotel Servis Kaydı Silindi");
     }

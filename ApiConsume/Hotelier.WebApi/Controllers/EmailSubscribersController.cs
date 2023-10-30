@@ -46,8 +46,9 @@ public class EmailSubscribersController : ControllerBase
     }
 
     [HttpDelete]
-    public IActionResult Delete(EmailSubscribe emailSubscribe)
+    public IActionResult Delete(int id)
     {
+        EmailSubscribe emailSubscribe = _service.GetById(id);
         _service.Delete(emailSubscribe);
         return Ok("Eposta Bülten Kaydı Başarı ile Silindi");
     }

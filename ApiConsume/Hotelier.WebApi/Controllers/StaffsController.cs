@@ -46,8 +46,9 @@ public class StaffsController : ControllerBase
     }
 
     [HttpDelete]
-    public IActionResult Delete(Staff staff)
+    public IActionResult Delete(int id)
     {
+        Staff staff = _service.GetById(id);
         _service.Delete(staff);
         return Ok("Personel Kaydı Başarı ile Silindi");
     }

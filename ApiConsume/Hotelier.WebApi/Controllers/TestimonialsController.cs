@@ -46,8 +46,9 @@ public class TestimonialsController : ControllerBase
     }
 
     [HttpDelete]
-    public IActionResult Delete(Testimonial testimonial)
+    public IActionResult Delete(int id)
     {
+        Testimonial testimonial = _service.GetById(id);
         _service.Delete(testimonial);
         return Ok("Referans Kaydı Silindi");
     }
