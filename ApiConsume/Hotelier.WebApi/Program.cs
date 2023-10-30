@@ -9,6 +9,13 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.LoadMyRepositories();
 builder.Services.LoadMyServices();
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy("HotelierApiCors", opts =>
+    {
+        opts.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+    });
+});
 
 var app = builder.Build();
 
@@ -17,6 +24,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("HotelierApiCors");
 
 app.UseHttpsRedirection();
 
